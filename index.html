@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .field{
+      width:500px;
+      border:2px solid blue;
+      padding:20px;
+      margin-left: 300px;
+      background-color:aqua;
+    }
+    form{
+      /* background-color: aquamarine; */
+      padding:20px;
+    }
+  </style>
+  </head>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <h2 class="field" style="border:none">Id Card Using Form</h2>
+    <fieldset class="field">
+    <form id="myForm">
+      <div class="mb-3" id="f1">
+        <label for="fname" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fname" required />
+      </div>
+      <div class="mb-3" id="f2">
+        <label for="role" class="form-label">Role</label>
+        <input type="text" class="form-control" id="role" required />
+      </div>
+      <div class="mb-3" id="f3">
+        <label for="age" class="form-label">Age</label>
+        <input type="text" class="form-control" id="age" />
+      </div>
+      <div class="mb-3" id="f4">
+        <label for="num" class="form-label">Mobile</label>
+        <input type="number" class="form-control" id="num" required />
+      </div>
+
+      <div class="mb-3" id="f5">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" required />
+      </div>
+      <div class="mb-3" id="f11"></div>
+        <label for="profile" class="form-label">choose your profile</label>
+        <input type="file" class="form-control" id="profile" required/>
+      </div>
+      <div class="mb-3" id="f6">
+        <label for="dob" class="form-label">Date Of Birth</label>
+        <input type="date" class="form-control" id="dob" />
+      </div>
+      <div style="display: flex; gap: 10px" id="gender">
+        <label for="gender">Gender</label>
+        <input type="radio" id="male" name="gender" value="male" />Male
+        <input type="radio" id="female" name="gender" value="female" />Female
+      </div>
+      <div class="mb-3" id="f9">
+        <label for="add" class="form-label">Address</label>
+        <input type="text" class="form-control" id="add" />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </fieldset>
+    <script>
+      let form = document.getElementById("myForm");
+      form.addEventListener("submit",(a)=>{
+        a.preventDefault();
+        let main=document.createElement("div");
+        document.body.appendChild(main);
+        main.style.display="flex";
+        main.style.gap="40px";
+        main.style.marginTop="10px";
+        let parent1 = document.createElement("div");
+        main.appendChild(parent1);
+        parent1.style.height = "500px";
+        parent1.style.width = "500px";
+        parent1.style.border = "2px solid red";
+        parent1.style.borderRadius = "20px";
+        parent1.style.backgroundColor = "darkslateblue";
+        let divImg=document.createElement("div");
+        parent1.appendChild(divImg);
+        divImg.style.height="200px";
+        divImg.style.width="200px";
+        divImg.style.borderRadius="200px";
+        divImg.style.backgroundColor="orange";
+        divImg.style.marginLeft="130px";
+        divImg.style.marginTop="50px";
+        let img=document.createElement("img");
+        let profile=document.getElementById("profile");
+        const reader =new FileReader();
+        reader.readAsDataURL(profile.files[0]);
+        reader.addEventListener("load",(e)=>{
+        img.setAttribute("src",e.target.result);
+        img.style.borderRadius="200px";
+        img.style.height="200px";
+        img.style.width="200px";
+        img.style.position="relative";
+        //  img.style.top="10px";
+        // img.style.marginLeft="10px";
+        divImg.appendChild(img)
+        })
+        let name=document.createElement("h3");
+        let name1=document.getElementById("fname");
+        parent1.appendChild(name)
+        name.style.color="white";
+        name.style.marginLeft="70px";
+        name.style.marginTop="40px";
+        name.innerHTML=name1.value;
+        let role1=document.createElement("h3");
+        let role3=document.getElementById("role");
+        role1.style.marginTop="30px";
+        role1.style.marginLeft="150px";
+        parent1.appendChild(role1)
+        role1.style.color="white";
+        role1.innerHTML=role3.value;
+        
+      let parent = document.createElement("div");
+        main.appendChild(parent);
+        parent.style.height = "500px";
+        parent.style.width = "500px";
+        parent.style.border = "2px solid red";
+        parent.style.borderRadius = "20px";
+        parent.style.backgroundColor = "darkslateblue";
+        let div3=document.createElement("div");
+        div3.style.marginLeft="70px";
+        div3.style.marginTop="50px";
+        div3.style.fontSize="22px";
+        parent.appendChild(div3);
+        let hea1=document.createElement("h3");
+        div3.appendChild(hea1);
+        hea1.style.color="orange";
+        hea1.style.marginLeft="50px";
+        hea1.style.marginTop="10px";
+        hea1.innerHTML="Profile Details";
+        let fname=document.getElementById("fname");
+        fname.style.backgroundColor="none";
+        let f1=document.getElementById("f1");
+        div3.appendChild(f1);
+        f1.style.color="white";
+        f1.style.marginLeft="20px";
+        f1.innerHTML="Full Name :"+fname.value;
+        let role=document.getElementById("role");
+        role.style.backgroundColor="none";
+        let f2=document.getElementById("f2");
+        div3.appendChild(f2);
+        f2.style.color="white";
+        f2.style.marginLeft="20px";
+        f2.innerHTML="Role :"+role.value;
+        let age=document.getElementById("age");
+        age.style.backgroundColor="none";
+        let f3=document.getElementById("f3");
+        div3.appendChild(f3);
+        f3.style.color="white";
+        f3.style.marginLeft="20px";
+        f3.innerHTML="Age :"+age.value;
+        let num=document.getElementById("num");
+        num.style.backgroundColor="none";
+        let f4=document.getElementById("f3");
+        div3.appendChild(f4);
+        f4.style.color="white";
+        f4.style.marginLeft="20px";
+        f4.innerHTML="Mobile :"+num.value;
+        let email=document.getElementById("email");
+        email.style.backgroundColor="none";
+        let f5=document.getElementById("f5");
+        div3.appendChild(f5);
+        f5.style.color="white";
+        f5.style.marginLeft="20px";
+        f5.innerHTML="Email :"+email.value;
+        let dob=document.getElementById("dob");
+        dob.style.backgroundColor="none";
+        let f6=document.getElementById("f6");
+        div3.appendChild(f6);
+        f6.style.color="white";
+        f6.style.marginLeft="20px";
+        f6.innerHTML="Date Of Birth :"+dob.value;
+        let gender=document.createElement("div");
+        let x;
+        div3.appendChild(gender);
+        gender.style.color="white";
+        gender.style.marginLeft="20px";
+        let ele=document.getElementsByName("gender")
+       for(i=0;i<ele.length;i++){
+        if(ele[i].checked)
+        gender.innerHTML="Gender :"+ele[i].value;
+       }
+        let add=document.getElementById("add");
+        add.style.backgroundColor="none";
+        let f9=document.getElementById("f9");
+        div3.appendChild(f9);
+        f9.style.color="white";
+        f9.style.marginLeft="20px";
+        f9.innerHTML="Address:"+add.value;
+        
+
+        
+      });
+
+    </script>
+  </body>
+</html>
